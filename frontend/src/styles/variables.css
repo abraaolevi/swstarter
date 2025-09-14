@@ -1,0 +1,11 @@
+:root {
+  --color-primary: #0ab463;
+  --color-disabled: #c4c4c4;
+  --color-background: #ededed;
+  --color-surface: #ffffff;
+  --color-text: #000000;
+  --color-border: #dadada;
+
+  --font-family: 'Montserrat', sans-serif;
+  --font-size-base: 16px;
+}

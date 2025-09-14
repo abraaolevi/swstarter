@@ -1,0 +1,14 @@
+.header {
+  background: var(--color-surface);
+  border-bottom: 2px solid var(--color-border);
+  padding: var(--spacing-md) 0;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-primary);
+  text-align: center;
+  padding: 12px 0;
+  font-family: var(--font-family);
+}

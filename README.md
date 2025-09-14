@@ -4,7 +4,7 @@ Arch decision
   - PostgreSQL
   - Cache?
 - React for frontend
-  - Tailwind CSS
+  - CSS modules
   - TanStack
 
 In dev:
