@@ -1,12 +1,16 @@
 import styles from './App.module.css'
-import Header from './components/ui/Header'
+import Box from './components/ui/box/Box'
+import Header from './components/ui/header/Header'
+import Search from './components/ui/search/Search'
 
 function App() {
   return (
     <div className={styles.app}>
       <Header />
       <main className={styles.main}>
-        <h2>Content</h2>
+        <Box>
+          <Search />
+        </Box>
       </main>
     </div>
   )

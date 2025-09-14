@@ -5,7 +5,7 @@
 }
 
 .title {
-  font-size: 18px;
+  font-size: var(--font-size-lg);
   font-weight: bold;
   color: var(--color-primary);
   text-align: center;
