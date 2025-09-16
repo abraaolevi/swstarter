@@ -2,78 +2,30 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Services\StarWars\StarWarsService;
-use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Validator;
-
-class PeopleController extends Controller
+class PeopleController extends BaseSearchController
 {
-    public function __construct(private StarWarsService $starWarsService)
+    protected function performSearch(string $query)
     {
+        return $this->starWarsService->searchPeople($query);
     }
 
-    /**
-     * Search for people by name
-     * POST /api/people/search
-     */
-    public function search(Request $request): JsonResponse
+    protected function getDetailById(string $id)
     {
-        $validator = Validator::make($request->all(), [
-            'query' => 'required|string|min:1|max:100'
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json([
-                'success' => false,
-                'errors' => $validator->errors()
-            ], 400);
-        }
-
-        try {
-            $query = strtolower(trim($request->input('query')));
-            $results = $this->starWarsService->searchPeople($query);
-
-            return response()->json([
-                'success' => true,
-                'data' => $results
-            ]);
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Search failed',
-                'error' => $e->getMessage()
-            ], 500);
-        }
+        return $this->starWarsService->getPersonDetail($id);
     }
 
-    /**
-     * Get person details by ID
-     * GET /api/people/{id}
-     */
-    public function show(string $id): JsonResponse
+    protected function getSearchType(): string
     {
-        if (!is_numeric($id) || $id <= 0) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Invalid person ID'
-            ], 400);
-        }
+        return 'people';
+    }
 
-        try {
-            $person = $this->starWarsService->getPersonDetail($id);
+    protected function getInvalidIdMessage(): string
+    {
+        return 'Invalid person ID';
+    }
 
-            return response()->json([
-                'success' => true,
-                'data' => $person
-            ]);
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Person not found',
-                'error' => $e->getMessage()
-            ], 404);
-        }
+    protected function getNotFoundMessage(): string
+    {
+        return 'Person not found';
     }
 }

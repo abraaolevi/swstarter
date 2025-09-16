@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PeopleController;
 use App\Http\Controllers\Api\FilmsController;
+use App\Http\Controllers\Api\StatsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Route::get('/people/{id}', [PeopleController::class, 'show']);
 // Films routes
 Route::post('/films/search', [FilmsController::class, 'search']);
 Route::get('/films/{id}', [FilmsController::class, 'show']);
+
+// Stats routes
+Route::get('/stats', [StatsController::class, 'index']);
