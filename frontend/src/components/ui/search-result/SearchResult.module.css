@@ -1,0 +1,29 @@
+.title {
+  font-size: var(--font-size-xl);
+  border-bottom: 1px solid var(--color-disabled);
+  padding-bottom: 10px;
+}
+
+.emptyContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 455px;
+  font-weight: bold;
+  color: var(--color-disabled);
+}
+
+.resultItem {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-disabled);
+  font-weight: bold;
+  font-size: var(--font-size-lg);
+  padding: 10px 0;
+}
+
+.resultItem span {
+  flex-grow: 1;
+}

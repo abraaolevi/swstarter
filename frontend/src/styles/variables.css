@@ -5,8 +5,10 @@
   --color-surface: #ffffff;
   --color-text: #000000;
   --color-border: #dadada;
+  --color-emerald: #089954;
 
   --font-family: 'Montserrat', sans-serif;
   --font-size-base: 14px;
-  --font-size-lg: 18px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
 }

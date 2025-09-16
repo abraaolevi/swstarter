@@ -1,0 +1,25 @@
+.main {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 26px;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .main {
+    grid-template-columns: 410px 1fr;
+    align-items: start;
+  }
+
+  .main > :first-child {
+    min-width: 410px;
+    width: 410px;
+  }
+
+  .main > :nth-child(2) {
+    min-height: 550px;
+  }
+}

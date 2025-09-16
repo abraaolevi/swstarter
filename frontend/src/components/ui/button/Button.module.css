@@ -1,0 +1,20 @@
+.button {
+  background-color: var(--color-primary);
+  font-size: var(--font-size-base);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 8px 12px;
+}
+
+.button:disabled {
+  background-color: var(--color-disabled);
+  cursor: not-allowed;
+}
+
+.button:hover:enabled {
+  background-color: var(--color-emerald);
+  cursor: pointer;
+}
