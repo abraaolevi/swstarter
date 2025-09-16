@@ -32,6 +32,8 @@ class CalculateStatsJob implements ShouldQueue
     {
         Log::info('CalculateStatsJob: starting job execution');
 
+        $startTime = microtime(true);
+
         try {
             $this->statsService->markAsCalculating();
 
@@ -51,7 +53,7 @@ class CalculateStatsJob implements ShouldQueue
             Log::info('CalculateStatsJob: Stats calculated and cached successfully', [
                 'total_searches' => $stats['general']['total_searches'],
                 'top_queries_count' => count($stats['top_queries']),
-                'calculation_time' => microtime(true) - LARAVEL_START,
+                'calculation_time' => microtime(true) - $startTime,
             ]);
 
         } catch (\Exception $e) {
