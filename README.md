@@ -2,16 +2,23 @@ Arch decision
 - Laravel for backend
   - Docker
   - PostgreSQL
-  - Cache?
+  - Cache for search results and details
 - React for frontend
   - CSS modules
   - TanStack
+  - Search debounce and cache in frontend
 
 In dev:
 ```
-docker compose up --watch
+docker compose up -d
 ```
 
-# TODO
-- [ ] update the readme with instructions
-- [ ] create prod version
+Test
+```
+docker-compose exec backend php artisan test
+````
+
+Versão de prod
+```
+docker compose -f docker-compose.prod.yaml up -d --build
+```
