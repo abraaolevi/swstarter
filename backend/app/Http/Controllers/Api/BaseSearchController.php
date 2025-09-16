@@ -40,7 +40,7 @@ abstract class BaseSearchController extends Controller
 
             $this->logSearchQuery($query, $responseTime, $resultsCount, $request);
 
-            return $this->successResponse($results, $responseTime, $resultsCount);
+            return $this->successResponse($results);
         } catch (\Exception $e) {
             $responseTime = $this->calculateResponseTime($startTime);
             $this->logSearchQuery($query, $responseTime, 0, $request, true);
@@ -138,15 +138,11 @@ abstract class BaseSearchController extends Controller
         return $result;
     }
 
-    protected function successResponse($results, float $responseTime, int $resultsCount): JsonResponse
+    protected function successResponse($results): JsonResponse
     {
         return response()->json([
             'success' => true,
             'data' => $results,
-            'meta' => [
-                'response_time_ms' => $responseTime,
-                'results_count' => $resultsCount,
-            ]
         ]);
     }
 
