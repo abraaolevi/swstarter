@@ -26,8 +26,6 @@ services:
       - postgres
       - redis
       - migrate
-    volumes:
-      - ./backend:/var/www/html
     ports:
       - "8000:8000"
 
@@ -96,6 +94,3 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
-volumes:
-  postgres_data:
