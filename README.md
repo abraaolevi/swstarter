@@ -63,10 +63,12 @@ To execute the tests for the backend:
 - **Framework**: React with Vite.
 - **Styling**: CSS Modules for scoped styling and pure CSS for simplicity.
 - **State Management**: TanStack Query for state and server data management.
+- **Layout**: Responsive design for usability on desktops, tablets, and mobile devices.
 
 ## Technical Decisions
-- **Laravel**: Chosen for its robust ecosystem and ease of integration with modern tools.
-- **React with Vite**: Selected for its simplicity and fast development setup, as Next.js was not necessary for this project.
-- **CSS Modules and Pure CSS**: Used because CSS Modules are natively supported by Vite, and pure CSS was chosen for its simplicity.
-- **Caching**: To save some requests to the External API.
-- **Worker and Scheduler**: Offloading time-consuming tasks and automating periodic stats jobs.
+
+**BaseSearchController**: A base controller was created to standardize the logic for search and detail endpoints for both Films and People, reducing code duplication and centralizing validation, logging, and error handling.
+
+**StarWars Service & DTOs**: All Star Wars-related Data Transfer Objects (DTOs) and service logic are grouped in the `Services/StarWars` folder. This keeps the domain logic organized and makes it easier to maintain and extend features related to the Star Wars API.
+
+**Stats Caching Strategy**: The stats endpoint uses caching to avoid recalculating statistics on every request. If the stats are not available or outdated, a background job is triggered to refresh them, and the endpoint returns a 202 status until the new stats are ready. This improves performance and scalability for frequent stats queries.
