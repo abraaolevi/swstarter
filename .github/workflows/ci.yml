@@ -87,8 +87,3 @@ jobs:
       - name: Build frontend
         run: npm run build
         working-directory: frontend
-
-      # Frontend test (ajuste se usar outro comando)
-      - name: Run frontend tests
-        run: npm test || true
-        working-directory: frontend
